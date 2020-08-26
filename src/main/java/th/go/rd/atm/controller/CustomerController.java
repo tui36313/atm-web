@@ -10,11 +10,11 @@ public class CustomerController {
 
     @RequestMapping("/customer")
     public String getCustomerPage(Model model) {
-        ArrayList<String> customers = new ArrayList<>(); // สร้างตัวแปล ArrayList : customers
-        customers.add("Peter");   // เพิ่มข้อมูลใน customers
-        customers.add("Nancy");
-        customers.add("Rick");
-        model.addAttribute("allCustomers", customers); //ส่งค่า ArrayList : customers ในตัวแปล allCustomers ผ่าน Model
+        ArrayList<Customer> customers = new ArrayList<>(); // สร้างตัวแปล object : Customers
+        customers.add(new Customer(1,"Peter","1234"));   // เพิ่มข้อมูลใน Object Customers
+        customers.add(new Customer(2,"Nancy","2345"));
+        customers.add(new Customer(3,"Rick","3456"));
+        model.addAttribute("allCustomers", customers); //ส่งค่า object : customers ในตัวแปล allCustomers ผ่าน Model
         return "customer";  // customer.html
     }
 }
