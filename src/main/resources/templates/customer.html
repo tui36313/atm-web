@@ -1,12 +1,8 @@
         <!DOCTYPE html>
-        <html lang="en" xmlns:th="https://www.thymeleaf.org">
-        <head>
-            <meta charset="UTF-8">
-            <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-            <title>Customer</title>
-        </head>
-        <body>
-        <div class="container">
+        <html xmlns:layout="http://www.w3.org/1999/xhtml"
+              layout:decorate="~{fragments/main_layout}"
+              xmlns:th="https://www.thymeleaf.org">
+            <div class="container" layout:fragment="content">
         <h1>Register Customer</h1>
         <form action="#" th:action="@{/customer}" method="POST">
             <div class="form-gruop">
@@ -43,6 +39,3 @@
         </tbody>
         </table>
         </div>
-
-        </body>
-        </html>
