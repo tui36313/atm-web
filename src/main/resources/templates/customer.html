@@ -1,37 +1,48 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Customer</title>
-</head>
-<body>
-<h1>Register Customer</h1>
+        <!DOCTYPE html>
+        <html lang="en" xmlns:th="https://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+            <title>Customer</title>
+        </head>
+        <body>
+        <div class="container">
+        <h1>Register Customer</h1>
+        <form action="#" th:action="@{/customer}" method="POST">
+            <div class="form-gruop">
+                <label for="inputId">Id</label>
+                <input type="input" name="id" id="inputId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="input" name="name" id="inputName" class="form-control">
+            </div>
 
-<form action="#" th:action="@{/customer}" method="POST">
-    <label for="inputId">Id</label>
-    <input type="input" name="id" id="inputId">
+            <div class="form-group">
+                <label for="inputPin">Pin</label>
+                <input type="password" name="pin" id="inputPin" class="form-control">
+            </div>
+            <div class="form-gruop">
+                <button type="submit" class="btn-primary">ยืนยัน</button>
+            </div>
+        </form>
 
+        <hr>
+        <!--<h1 th:each="customer : ${allCustomers}" th:text="${customer}"></h1>-->
+        <h1>All Customers</h1>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+            <tr><th>Id</th> <th>Name</th><th>Pin</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="customer : ${allCustomers}">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.pin}"></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
 
-    <label for="inputName">Name</label>
-    <input type="input" name="name" id="inputName">
-
-    <label for="inputPin">Pin</label>
-    <input type="password" name="pin" id="inputPin">
-
-    <input type="submit">
-</form>
-<hr>
-<!--<h1 th:each="customer : ${allCustomers}" th:text="${customer}"></h1>-->
-<h1>All Customers</h1>
-<table border="1px">
-    <tr><th>Id</th> <th>Name</th><th>Pin</th></tr>
-
-    <tr th:each="customer : ${allCustomers}">
-        <td th:text="${customer.id}"></td>
-        <td th:text="${customer.name}"></td>
-        <td th:text="${customer.pin}"></td>
-    </tr>
-</table>
-
-</body>
-</html>
+        </body>
+        </html>
